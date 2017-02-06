@@ -40,7 +40,8 @@ public class LPManagerMock implements ILPManagerFacade
     @Override
     public List<Offender> searchOffenders(String query)
     {
-        if (query.trim().isEmpty())
+        query = query.toUpperCase().replace(" ", "").trim();
+        if (query.isEmpty())
         {
             return allOffenders;
         }
@@ -49,16 +50,13 @@ public class LPManagerMock implements ILPManagerFacade
 
         String srch = "(.*)";
         String pattern = srch;
-        for (char c : query.trim().toUpperCase().toCharArray())
+        for (char c : query.toCharArray())
         {
             pattern += c + srch;
         }
-
-        System.out.println(pattern);
-
         for (Offender offender : allOffenders)
         {
-            if (offender.getLicense().matches(pattern))
+            if (offender.getLicense().toUpperCase().matches(pattern))
             {
                 searchResult.add(offender);
             }

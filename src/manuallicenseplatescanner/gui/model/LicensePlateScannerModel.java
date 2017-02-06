@@ -28,6 +28,7 @@ public class LicensePlateScannerModel
         offenders = FXCollections.observableArrayList();
         licensePlateManager = LPManagerFacadeFactory.getFacade(LPManagerFacadeFactory.SystemState.PROTOTYPE);
         offenders.addAll(licensePlateManager.getOffenders());
+
     }
 
     public ObservableList<Offender> getOffenders()
@@ -39,7 +40,7 @@ public class LicensePlateScannerModel
     {
         List<Offender> serchedOffenders = licensePlateManager.searchOffenders(query);
         offenders.clear();
-        offenders.addAll(offenders);
+        offenders.addAll(serchedOffenders);
     }
 
 }
