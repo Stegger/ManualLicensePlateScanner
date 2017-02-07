@@ -92,7 +92,6 @@ public class LPManagerMock implements ILPManagerFacade
             }
         }
         allOffenders.addAll(genOff.values());
-        System.out.println("Size " + allOffenders.size());
     }
 
 }
