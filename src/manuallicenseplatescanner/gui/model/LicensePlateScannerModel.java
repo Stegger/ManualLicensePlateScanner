@@ -25,6 +25,7 @@ public class LicensePlateScannerModel
 
     public LicensePlateScannerModel()
     {
+         System.out.println("Method Model controller - THREAD: " + Thread.currentThread().getName());
         offenders = FXCollections.observableArrayList();
         licensePlateManager = LPManagerFacadeFactory.getFacade(LPManagerFacadeFactory.SystemState.PROTOTYPE);
         offenders.addAll(licensePlateManager.getOffenders());
@@ -38,6 +39,7 @@ public class LicensePlateScannerModel
 
     public void search(String query)
     {
+         System.out.println("Method model search - THREAD: " + Thread.currentThread().getName());
         List<Offender> serchedOffenders = licensePlateManager.searchOffenders(query);
         offenders.clear();
         offenders.addAll(serchedOffenders);

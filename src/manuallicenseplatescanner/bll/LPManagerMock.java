@@ -23,6 +23,7 @@ public class LPManagerMock implements ILPManagerFacade
 
     protected LPManagerMock()
     {
+         System.out.println("Method bll controller - THREAD: " + Thread.currentThread().getName());
         allOffenders = new ArrayList<>();
         generateOffenders();
     }
@@ -34,12 +35,14 @@ public class LPManagerMock implements ILPManagerFacade
     @Override
     public List<Offender> getOffenders()
     {
+         System.out.println("Method bll get offenders - THREAD: " + Thread.currentThread().getName());
         return allOffenders;
     }
 
     @Override
     public List<Offender> searchOffenders(String query)
     {
+         System.out.println("Method bll search offenders - THREAD: " + Thread.currentThread().getName());
         query = query.toUpperCase().replace(" ", "").trim();
         if (query.isEmpty())
         {

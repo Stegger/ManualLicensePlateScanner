@@ -52,6 +52,7 @@ public class LicensePlateScannerController implements Initializable
     @FXML
     private void addOffense(ActionEvent event)
     {
+        System.out.println("Method addOffense - THREAD: " + Thread.currentThread().getName());
         try
         {
             String offense = txtInOffense.getText().trim();
@@ -73,6 +74,7 @@ public class LicensePlateScannerController implements Initializable
     @Override
     public void initialize(URL url, ResourceBundle rb)
     {
+         System.out.println("Method controller init - THREAD: " + Thread.currentThread().getName());
         listSearch.setItems(model.getOffenders());
         
         listSearch.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<Offender>()
@@ -94,6 +96,7 @@ public class LicensePlateScannerController implements Initializable
     @FXML
     private void performSearch(ActionEvent event)
     {
+         System.out.println("Method search - THREAD: " + Thread.currentThread().getName());
         String query = txtSearch.getText().trim();
         model.search(query);
     }
